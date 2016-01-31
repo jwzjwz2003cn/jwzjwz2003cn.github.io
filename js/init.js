@@ -102,7 +102,7 @@
 						var $this = $(this),
 							href = $this.attr('href'),
 							id;
-
+							
 						// Not an internal link? Bail.
 							if (href.charAt(0) != '#')
 								return;
@@ -115,8 +115,9 @@
 					});
 
 			// Initialize scrollzer.
-				$.scrollzer(ids, { pad: 300, lastHack: true });
-
+				if (ids.length > 0){
+					$.scrollzer(ids, { pad: 300, lastHack: true });
+				}
 	});
 
 })(jQuery);
