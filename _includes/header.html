@@ -11,7 +11,8 @@
                 <li><a href="{{ site.baseurl }}/contact">Contact</a></li>
                 <li><a href="{{ site.baseurl }}/blog">Blog</a></li>
                 <li><a href="{{ site.baseurl }}/resume">Résumé</a></li>
-                <li id="visitor-count">You are visitor #   <!-- Start of StatCounter Code for Default Guide -->
+                <li id="visitor-count">You are visitor #
+                  <!-- Start of StatCounter Code for Default Guide -->
                     <script type="text/javascript">
                     var sc_project=10816950;
                     var sc_invisible=0;
@@ -29,9 +30,20 @@
                     src="http://c.statcounter.com/10816950/0/63d7f2c3/0/"
                     alt="web counter"></a></div></noscript>
                     <!-- End of StatCounter Code for Default Guide -->
-</li>
+                  </li>
             </ul>
         </nav>
+        <div id="top-tags">
+          <div style="margin:10px" id="tagcloud-header">
+            <h4>Tags</h4>
+            {% for tag in site.tags %}
+                <a style="display:inline-block;padding:1px;font-size: {{ tag | last | size | times: 100 | divided_by: site.tags.size | plus: 40  }}%"
+                href="{{ site.baseurl }}/tags#{{ tag | first | slugize }}">
+                  {{ tag | first }}
+                </a>
+            {% endfor %}
+         </div>
+        </div>
         <footer>
             <ul class="icons">
                 <li><a href="https://twitter.com/jwzjwz2003cn" class="icon fa-twitter"><span class="label">Twitter</span></a></li>

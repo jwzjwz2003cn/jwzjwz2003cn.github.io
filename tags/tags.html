@@ -1,0 +1,30 @@
+---
+layout: default
+permalink: /tags/
+---
+
+<section id="one">
+  <div id="tagcloud">
+    <h3>Tags</h3>
+    {% for tag in site.tags %}
+        <a style="display:inline-block;padding:5px;font-size: {{ tag | last | size | times: 100 | divided_by: site.tags.size | plus: 40  }}%"
+        href="#{{ tag | first | slugize }}">
+          {{ tag | first }}
+        </a>
+    {% endfor %}
+ </div>
+  <div id="archives">
+  {% for tag in site.tags %}
+    <div class="archive-group">
+      {% capture tag_name %}{{ tag | first }}{% endcapture %}
+      <h4 id="#{{ tag_name | slugize }}">{{ tag_name }}</h4>
+      <a name="{{ tag_name | slugize }}"></a>
+      {% for post in site.tags[tag_name] %}
+      <article class="archive-item">
+        <h5>{{post.date | date: "%a, %b %d, %y" }} » <a href="{{ root_url }}{{ post.url }}">{{post.title}}</a></h5>
+      </article>
+      {% endfor %}
+    </div>
+  {% endfor %}
+  </div>
+</secion>

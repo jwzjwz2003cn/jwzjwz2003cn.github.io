@@ -33,7 +33,7 @@ a {
 }
 a:hover {
   border-bottom-color: transparent;
-  color: #093b9e !important;
+  color: #093b9e;
 }
 strong, b {
   color: #777;
@@ -849,6 +849,52 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
   width: 100%;
 }
 
+
+/* Tags */
+
+#tagcloud {
+  padding: 5px;
+}
+
+#tagcloud > a {
+  border-bottom: 0px;
+  background-color: #093b9e;
+  color: white;
+}
+
+#tagcloud > a:hover {
+  background-color: #2d5bc1;
+  color: white;
+}
+
+#archives {
+  padding: 5px;
+}
+.archive-group {
+  margin: 5px;
+  border-top: 1px solid #ddd;
+}
+.archive-item {
+  margin-left: 5px;
+}
+.post-tags {
+  text-align: left;
+}
+
+.post-tags > a {
+  background-color: #093b9e;
+  color: white;
+  padding: 4px;
+}
+
+#tagcloud-header > a{
+  color: white;
+  border-bottom: 0px;
+}
+
+#tagcloud-header > a:hover{
+  color: #5f7683
+}
 /* Footer */
 
 #footer {
