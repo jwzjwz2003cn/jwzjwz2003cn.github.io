@@ -2,59 +2,33 @@
 layout: default
 ---
 
+<main id="scroll" class="home" role="main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
+    {% for post in site.posts %}
+        <article role="article" class="post-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+                <a class="datetime" href="{{ post.url | prepend: site.baseurl }}">
+                    <meta itemprop="datePublished" content="{{post.date}}">
+                    <time datetime="{{ post.date | date_to_xmlschema }}">
+                        <span class="day">
+                            {{ post.date | date: "%d" }}
+                        </span>
+                        <span class="month-year">
+                            {{ post.date | date: "%B %Y" }}
+                        </span>
+                    </time>
+                </a>
+                <div class="content">
+                    <a href="{{ post.url | prepend: site.baseurl }}"><h2 class="post-title" itemprop="name">{{ post.title }}</h2></a>
+                    <p class="description">
+                        {{ post.content | strip_html | truncatewords:40 }}
+                        <a href="{{ post.url | prepend: site.baseurl }}" class="link">Read more about {{post.title}}</a>
+                    </p>
 
-
-<!-- One -->
-    <section id="one">
-        <div class="container">
-            <header class="major">
-                <h2>Hello World</h2>
-            </header>
-            <h3>About Me</h3>
-            <p>My name is Frank Ji, and I live in the heart of the city of Toronto. I am a software developer currently working at IBM Canada. My team builds one of the key infrastructures
-              used by pretty much all of the major banks and financial institutions in North America. In that sense, I feel good about the fact that my work impacted millions of users.<br>
-              In my leisure time, I am pursuing a long list of interests to keep myself entertained. And I will be sharing some of the most exciting things I learned or encountered in my blog.
-            </p>
-            <h5>My Interests List</h5>
-            <p>This are the 6 things I did the most in 2015</p>
-            <ul class="feature-icons">
-                <li class="fa-code">Hack something out</li>
-                <li class="fa-plane">Travelling to other cities</li>
-                <li class="fa-steam">Playing games on a PC</li>
-                <li class="fa-cutlery">Finding the secret menu</li>
-                <li class="fa-line-chart">Stocks and Trading</li>
-                <li class="fa-book">Reading an actual book</li>
-            </ul>
-    </section>
-
-<!-- Three
-    <section id="three">
-        <div class="container">
-            <h3>A Few Accomplishments</h3>
-            <p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer. Integer eu ante ornare amet commetus.</p>
-            <div class="features">
-                <article>
-                    <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
-                    <div class="inner">
-                        <h4>Possibly broke spacetime</h4>
-                        <p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
+                    <div class="tags">
+                        {% for tag in post.tags %}
+                            <a class="tag-cloud" href="{{ baseurl }}/tags/#{{tag | slugify }}">{{ tag }}</a>
+                        {% endfor %}
                     </div>
-                </article>
-                <article>
-                    <a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
-                    <div class="inner">
-                        <h4>Terraformed a small moon</h4>
-                        <p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
-                    </div>
-                </article>
-                <article>
-                    <a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
-                    <div class="inner">
-                        <h4>Snapped dark matter in the wild</h4>
-                        <p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
--->
+                </div>
+        </article>
+    {% endfor %}
+</main>

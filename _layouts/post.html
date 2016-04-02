@@ -1,25 +1,19 @@
----
-layout: default
----
-<section>
-    <div class="container">
-        <header class="major">
-            <h2>{{ page.title }}</h2>
-            <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
-            {% include post-tags.html %}
-        </header>
+<!DOCTYPE html>
+<html lang="pt-br">
+    {% include head.html %}
+    <body>
+        {% include svg-icons.html %}
+        {% include header-post.html %}
+        <section class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-        <section class="post-content">
-            {{ content }}
+            <article role="article" id="scroll" class="post-content" itemprop="articleBody">
+                {{ content }}
+            </article>
+
+            {% include share.html %}
+            {% include author.html %}
+            {% include comments.html %}
+            {% include footer.html %}
         </section>
-
-        <footer>
-            {% if page.previous %}
-            <a href="{{ page.previous.url }}" class="float-left">&larr; Previous post</a> {% endif %}
-            {% if page.next %}
-            <a href="{{ page.next.url }}" class="float-right">Next post &rarr;</a> {% endif %}
-        </footer>
-
-    </div>
-
-</section>
+    </body>
+</html>
