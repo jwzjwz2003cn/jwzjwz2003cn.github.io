@@ -1,0 +1,42 @@
+size(width = 30, height = 30)
+    width width px
+    height height px
+
+.icons-home
+    text-align center
+    a
+        display inline-block
+        padding rem(15px)
+        margin rem(2px)
+        border-radius 50%
+        border rem(2px) solid sec
+        line-height 0
+        transition all .7s
+        .icon
+            size(18,18)
+            +above(cut)
+                size()
+        .icon-twitter
+            fill #4099ff
+        .icon-google-plus
+            fill #f90101
+        .icon-rss
+            fill #ff6600
+        .icon-email
+            fill sec
+        &:hover
+            background sec
+            .icon
+                fill background
+
+.down
+    position absolute
+    bottom 50px
+    width 100%
+    display block
+    text-align center
+    .icon
+        align(both)
+        size(100,100)
+        fill sec
+        animation pulse 1.3s infinite
