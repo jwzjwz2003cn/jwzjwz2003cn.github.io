@@ -1,7 +1,7 @@
 # Site settings
 description: Frank's Personal Space
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://localhost:3000" # the base hostname & protocol for your site
+url: "http://frankji.com" # the base hostname & protocol for your site
 
 # User settings
 username: Frank Ji
